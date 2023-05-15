@@ -1,0 +1,412 @@
+{
+  "command": [
+    {
+      "name": "User Joins Server",
+      "perms": [],
+      "actions": [
+        {
+          "name": "Welcome-Message",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "1107013420596854814",
+          "color": "FF0000",
+          "title": "Welcome!",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "<@${tempVars.newuser.id}> has joined the Server!",
+          "thumbnail": "",
+          "image": "${tempVars.newuser.user.avatarURL}",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "Give vip",
+          "category": "User Action",
+          "type": "Add Role to User",
+          "messageActionRows": [],
+          "user": "${tempVars.newuser.id}",
+          "rolename": "[VIP]"
+        }
+      ],
+      "var": {
+        "user": "newuser"
+      }
+    },
+    {
+      "name": "Any Message",
+      "perms": [],
+      "actions": [
+        {
+          "name": "Coin-for-Message",
+          "category": "User Data",
+          "type": "Edit User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.anymessagemember.id}",
+          "field": "Coin",
+          "oper": "+",
+          "value": "1"
+        }
+      ],
+      "var": {}
+    },
+    {
+      "name": "User Kicked",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "user": "kickuser"
+      }
+    },
+    {
+      "name": "User Banned",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "user": "banuser"
+      }
+    },
+    {
+      "name": "Bot Initialization",
+      "perms": [],
+      "actions": [
+        {
+          "name": "Activity",
+          "category": "Bot Action",
+          "type": "Set Bot Activity",
+          "messageActionRows": [],
+          "activityname": "on NividiaMC",
+          "activitytype": "PLAYING",
+          "streamurl": ""
+        }
+      ],
+      "var": {}
+    },
+    {
+      "name": "Channel Create",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "createdchannel"
+      }
+    },
+    {
+      "name": "Channel Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "deletedchannel"
+      }
+    },
+    {
+      "name": "Channel Pins Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "updatepinschannel"
+      }
+    },
+    {
+      "name": "Channel Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "updatechannel"
+      }
+    },
+    {
+      "name": "Emoji Create",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "createdemoji"
+      }
+    },
+    {
+      "name": "Emoji Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "deletedemoji"
+      }
+    },
+    {
+      "name": "Emoji Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": "updatedemoji"
+      }
+    },
+    {
+      "name": "Guild Ban Remove",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Create",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Member Available",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Member Speaking",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Member Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Unavailable",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Guild Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Message Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Message Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Role Create",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Role Delete",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Role Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Typing Start",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "User Update",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Button Interaction",
+      "perms": [],
+      "actions": [
+        {
+          "name": "Buttons",
+          "category": "Control",
+          "type": "Switch Case",
+          "valueActions": {
+            "TicketPremium": [
+              {
+                "name": "TicketPremium-Channel-Create",
+                "category": "Channel Action",
+                "type": "Create Channel",
+                "messageActionRows": [],
+                "channelname": "${tempVars.buttoninteraction.member.displayName}",
+                "chancategory": "1105877173811822603",
+                "reason": "idk",
+                "channeltype": "Text",
+                "savetovariable": "premiumticket",
+                "savetovariabletype": "server"
+              },
+              {
+                "name": "TicketPremium-Message-Menu",
+                "category": "Message",
+                "type": "Send Embed",
+                "messageActionRows": [
+                  {
+                    "rowtype": "button",
+                    "buttons": [
+                      {
+                        "label": "Close Ticket",
+                        "customid": "DeleteTicket",
+                        "style": "DANGER",
+                        "emoji": "",
+                        "URL": "",
+                        "ephemeral": false
+                      }
+                    ]
+                  }
+                ],
+                "channelname": "${dbsVars.DefaultChannel.id}",
+                "color": "FFFFFF",
+                "title": "Menu",
+                "url": "",
+                "authorname": "",
+                "authorimageurl": "",
+                "authorlink": "",
+                "description": "Menu\n${serverVars.premiumticket.id}",
+                "thumbnail": "",
+                "image": "",
+                "footer": "",
+                "timestamp": "false",
+                "savetovariable": "",
+                "savetovariabletype": "temp"
+              },
+              {
+                "name": "TicketPremium-Channel-Perm1",
+                "category": "Channel Action",
+                "type": "Update Channel Permissions",
+                "messageActionRows": [],
+                "channelname": "${serverVars.premiumticket.id}",
+                "permid": "843904839435812972",
+                "permissions": [
+                  "VIEW_CHANNEL",
+                  "SEND_MESSAGES"
+                ],
+                "allow": "Allow"
+              },
+              {
+                "name": "TicketPremium-Message-Menu_1",
+                "category": "Message",
+                "type": "Send Embed",
+                "messageActionRows": [
+                  {
+                    "rowtype": "button",
+                    "buttons": [
+                      {
+                        "label": "Close",
+                        "customid": "DeleteTicket",
+                        "style": "DANGER",
+                        "emoji": "",
+                        "URL": "",
+                        "ephemeral": false
+                      }
+                    ]
+                  }
+                ],
+                "channelname": "${serverVars.premiumticket.id}",
+                "color": "FFFFFF",
+                "title": "Menu",
+                "url": "",
+                "authorname": "",
+                "authorimageurl": "",
+                "authorlink": "",
+                "description": "Menu\n${serverVars.premiumticket.id}",
+                "thumbnail": "",
+                "image": "",
+                "footer": "",
+                "timestamp": "false",
+                "savetovariable": "",
+                "savetovariabletype": "temp"
+              }
+            ],
+            "DeleteTicket": [
+              {
+                "name": "DeleteTicket-Delete",
+                "category": "Channel Action",
+                "type": "Delete Channel",
+                "messageActionRows": [],
+                "channelname": "${serverVars.premiumticket.id}",
+                "reason": "idk"
+              }
+            ]
+          },
+          "messageActionRows": [],
+          "varname": "${tempVars.buttoninteraction.customId}"
+        },
+        {
+          "name": "Delete-Interaktion-Reply",
+          "category": "Interaction",
+          "type": "Delete Interaction Reply",
+          "messageActionRows": [],
+          "interactionobject": "${tempVars.buttoninteraction}"
+        }
+      ],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Select Interaction",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    },
+    {
+      "name": "Command Interaction",
+      "perms": [],
+      "actions": [],
+      "var": {
+        "channel": ""
+      }
+    }
+  ]
+}

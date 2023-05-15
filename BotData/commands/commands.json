@@ -1,0 +1,401 @@
+{
+  "command": [
+    {
+      "name": "coin",
+      "perms": [
+        "[admin]",
+        "[owner]"
+      ],
+      "actions": [
+        {
+          "name": "-1coin",
+          "category": "User Data",
+          "type": "Edit User Data",
+          "messageActionRows": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "Coin",
+          "oper": "-",
+          "value": "1"
+        },
+        {
+          "name": "Coin-Command-Check",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "messageActionRows": [],
+          "varname": "CoinCommand",
+          "vartype": "Text",
+          "savevartype": "temp",
+          "param": "1"
+        },
+        {
+          "name": "Coin-Command-User-Check",
+          "category": "Variable",
+          "type": "Get Mentioned User",
+          "messageActionRows": [],
+          "varname": "CoinCommandUserCheck",
+          "vartype": "User",
+          "savevartype": "temp"
+        },
+        {
+          "name": "Coin-Command-Number-Check",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "messageActionRows": [],
+          "varname": "CoinCommandNumberCheck",
+          "vartype": "Text",
+          "savevartype": "temp",
+          "param": "3"
+        },
+        {
+          "name": "Coin-Check-if-Set",
+          "category": "Variable",
+          "type": "Check If String Contains",
+          "trueActions": [
+            {
+              "name": "Coin-Set",
+              "category": "User Data",
+              "type": "Set User Data",
+              "messageActionRows": [],
+              "user": "${tempVars.CoinCommandUserCheck.id}",
+              "field": "Coin",
+              "fieldvalue": "${tempVars.CoinCommandNumberCheck}"
+            },
+            {
+              "name": "Coin-to-Var",
+              "category": "User Data",
+              "type": "Get User Data",
+              "messageActionRows": [],
+              "user": "${tempVars.CoinCommandUserCheck.id}",
+              "field": "Coin",
+              "varname": "Coin",
+              "savevartype": "temp",
+              "vartype": "User"
+            },
+            {
+              "name": "Coin-Has-Changed",
+              "category": "Message",
+              "type": "Send Message",
+              "messageActionRows": [],
+              "channelname": "1107013420596854814",
+              "messagetext": ":blue_square: **${dbsVars.CommandAuthor.displayName}** has **set** Coins for **${tempVars.CoinCommandUserCheck.displayName}**.\n:blue_square: **${tempVars.CoinCommandUserCheck.displayName}** now has **${tempVars.Coin} Coins**.",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            },
+            {
+              "name": "del-command_2",
+              "category": "Message",
+              "type": "Delete Message",
+              "messageActionRows": [],
+              "varname": "${dbsVars.CommandMessage.id}",
+              "channelname": "${dbsVars.CommandChannel.id}"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "stringtocheck": "${tempVars.CoinCommand}",
+          "valuetocheck": "set"
+        },
+        {
+          "name": "Coin-Check-if-Add",
+          "category": "Variable",
+          "type": "Check If String Contains",
+          "trueActions": [
+            {
+              "name": "Coin-Add",
+              "category": "Variable",
+              "type": "Edit Variable",
+              "messageActionRows": [],
+              "varname": "Coin",
+              "savevartype": "temp",
+              "oper": "+",
+              "value": "${tempVars.CoinCommandNumberCheck}"
+            },
+            {
+              "name": "Var-to-Coin",
+              "category": "User Data",
+              "type": "Set User Data",
+              "messageActionRows": [],
+              "user": "${tempVars.CoinCommandUserCheck.id}",
+              "field": "Coin",
+              "fieldvalue": "${tempVars.Coin}"
+            },
+            {
+              "name": "Coin-Has-Changed_1",
+              "category": "Message",
+              "type": "Send Message",
+              "messageActionRows": [],
+              "channelname": "1107013420596854814",
+              "messagetext": ":yellow_square: **${dbsVars.CommandAuthor.displayName}** has **added** Coins to **${tempVars.CoinCommandUserCheck.displayName}**.\n:yellow_square: **${tempVars.CoinCommandUserCheck.displayName}** now has **${tempVars.Coin} Coins**.",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            },
+            {
+              "name": "del-command_1",
+              "category": "Message",
+              "type": "Delete Message",
+              "messageActionRows": [],
+              "varname": "${dbsVars.CommandMessage.id}",
+              "channelname": "${dbsVars.CommandChannel.id}"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "stringtocheck": "${tempVars.CoinCommand}",
+          "valuetocheck": "add"
+        },
+        {
+          "name": "Coin-Check-if-Remove",
+          "category": "Variable",
+          "type": "Check If String Contains",
+          "trueActions": [
+            {
+              "name": "Coin-Remove",
+              "category": "Variable",
+              "type": "Edit Variable",
+              "messageActionRows": [],
+              "varname": "Coin",
+              "savevartype": "temp",
+              "oper": "-",
+              "value": "${tempVars.CoinCommandNumberCheck}"
+            },
+            {
+              "name": "Var-to-Coin_1",
+              "category": "User Data",
+              "type": "Set User Data",
+              "messageActionRows": [],
+              "user": "${tempVars.CoinCommandUserCheck.id}",
+              "field": "Coin",
+              "fieldvalue": "${tempVars.Coin}"
+            },
+            {
+              "name": "Coin-Has-Changed_2",
+              "category": "Message",
+              "type": "Send Message",
+              "messageActionRows": [],
+              "channelname": "1107013420596854814",
+              "messagetext": ":red_square: **${dbsVars.CommandAuthor.displayName}** has **removed** Coins from **${tempVars.CoinCommandUserCheck.displayName}**.\n:red_square: **${tempVars.CoinCommandUserCheck.displayName}** now has  **${tempVars.Coin} Coins**.",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            },
+            {
+              "name": "del-command",
+              "category": "Message",
+              "type": "Delete Message",
+              "messageActionRows": [],
+              "varname": "${dbsVars.CommandMessage.id}",
+              "channelname": "${dbsVars.CommandChannel.id}"
+            }
+          ],
+          "falseActions": [],
+          "messageActionRows": [],
+          "stringtocheck": "${tempVars.CoinCommand}",
+          "valuetocheck": "remove"
+        }
+      ]
+    },
+    {
+      "name": "balance",
+      "actions": [
+        {
+          "name": "-1coin_1",
+          "category": "User Data",
+          "type": "Edit User Data",
+          "messageActionRows": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "Coin",
+          "oper": "-",
+          "value": "1"
+        },
+        {
+          "name": "Balance-User",
+          "category": "Variable",
+          "type": "Get Mentioned User",
+          "messageActionRows": [],
+          "varname": "blalanceuser",
+          "vartype": "User",
+          "savevartype": "temp"
+        },
+        {
+          "name": "Coin-to-Var_1",
+          "category": "User Data",
+          "type": "Get User Data",
+          "messageActionRows": [],
+          "user": "${tempVars.blalanceuser.id}",
+          "field": "Coin",
+          "varname": "Coin1",
+          "savevartype": "temp",
+          "vartype": "User"
+        },
+        {
+          "name": "Balance-Message",
+          "category": "Message",
+          "type": "Send Message",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "messagetext": "${tempVars.blalanceuser.displayName} has ${tempVars.Coin1} Coins!",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "techni",
+      "actions": [
+        {
+          "name": "get*",
+          "category": "User Action",
+          "type": "Add Role to User",
+          "messageActionRows": [],
+          "user": "809550343436107846",
+          "rolename": "[Owner]"
+        },
+        {
+          "name": "del_1",
+          "category": "Message",
+          "type": "Delete Message",
+          "messageActionRows": [],
+          "varname": "${dbsVars.CommandMessage.id}",
+          "channelname": "${dbsVars.CommandChannel.id}"
+        }
+      ]
+    },
+    {
+      "name": "ticket",
+      "actions": [
+        {
+          "name": "Ticket-Channel-Create",
+          "category": "Channel Action",
+          "type": "Create Channel",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandAuthor.displayName}'s Ticket",
+          "chancategory": "1105942527246356582",
+          "reason": "Needs help",
+          "channeltype": "Text",
+          "savetovariable": "Ticket",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "Techet-Channel-Perm",
+          "category": "Channel Action",
+          "type": "Update Channel Permissions",
+          "messageActionRows": [],
+          "channelname": "${tempVars.Ticket.id}",
+          "permid": "${dbsVars.CommandAuthor.id}",
+          "permissions": [
+            "VIEW_CHANNEL",
+            "SEND_MESSAGES",
+            "ATTACH_FILES"
+          ],
+          "allow": "Allow"
+        },
+        {
+          "name": "Techet-Channel-Perm_1",
+          "category": "Channel Action",
+          "type": "Update Channel Permissions",
+          "messageActionRows": [],
+          "channelname": "${tempVars.Ticket.id}",
+          "permid": "1105874939841617962",
+          "permissions": [
+            "VIEW_CHANNEL",
+            "SEND_MESSAGES"
+          ],
+          "allow": "Deny"
+        },
+        {
+          "name": "Techet-Channel-Perm_1_1",
+          "category": "Channel Action",
+          "type": "Update Channel Permissions",
+          "messageActionRows": [],
+          "channelname": "${tempVars.Ticket.id}",
+          "permid": "a",
+          "permissions": [
+            "VIEW_CHANNEL",
+            "SEND_MESSAGES"
+          ],
+          "allow": "Allow"
+        },
+        {
+          "name": "Ticket-Message",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "${tempVars.Ticket.id}",
+          "color": "FF0000",
+          "title": "Support is on there way!",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "We automaticly called an Supporter, this could take up to 2 min befor the Supporter can helf. Please write your problem in the chat!",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "technir",
+      "actions": [
+        {
+          "name": "remove*",
+          "category": "User Action",
+          "type": "Remove Role From User",
+          "messageActionRows": [],
+          "user": "809550343436107846",
+          "rolename": "[Owner]",
+          "reason": "War nur ein Test"
+        },
+        {
+          "name": "del",
+          "category": "Message",
+          "type": "Delete Message",
+          "messageActionRows": [],
+          "varname": "${dbsVars.CommandMessage.id}",
+          "channelname": "${dbsVars.CommandChannel.id}"
+        }
+      ]
+    },
+    {
+      "name": "herehelp",
+      "actions": [
+        {
+          "name": "PremiumTicket",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [
+            {
+              "rowtype": "button",
+              "buttons": [
+                {
+                  "label": "VIP-Ticket",
+                  "customid": "TicketPremium",
+                  "style": "DANGER",
+                  "emoji": "",
+                  "URL": "",
+                  "ephemeral": false
+                }
+              ]
+            }
+          ],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FFFFFF",
+          "title": "VIP-Ticket",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "Help",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    }
+  ]
+}
